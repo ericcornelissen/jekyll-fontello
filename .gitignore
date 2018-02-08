@@ -1,4 +1,5 @@
 builds
+*.gem
 
 # OS X
 .DS_Store
