@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name        = 'jekyll-fontello'
-  spec.version     = '0.1.0'
+  spec.version     = '0.1.1'
   spec.date        = '2018-02-08'
   spec.summary     = 'Fontello for jekyll'
   spec.description = 'Jekyll plugin that automatically downloads your webfont from Fontello.'
