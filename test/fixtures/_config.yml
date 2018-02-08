@@ -1,0 +1,6 @@
+fontello:
+  config: 'test/fixtures/fontello.json'
+  fonts_path: '../assets/fonts'
+  output_fonts: 'test/_tmp/fonts'
+  output_styles: 'test/_tmp/styles'
+  preprocessor: 'scss'

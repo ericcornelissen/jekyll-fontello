@@ -4,35 +4,40 @@ require 'zip'
 
 Zip.on_exists_proc = true
 
-module Fontello
-  class Generator < Jekyll::Generator
-    FONTELLO_URL = 'http://fontello.com'
-    SESSION_FILE = "#{Dir.tmpdir}/jekyll_fontello_session"
-    ZIP_FILE = "#{Dir.tmpdir}/jekyll_fontello.zip"
+module JekyllFontello
+  FONTELLO_URL = 'http://fontello.com'
+  SESSION_FILE = "#{Dir.tmpdir}/jekyll_fontello_session"
+  ZIP_FILE = "#{Dir.tmpdir}/jekyll_fontello.zip"
 
+  class Generator < Jekyll::Generator
     # Read the plugin configuration and generate the
     # Fontello files based on that.
     #
     #  required by Jekyll
     def generate(site)
-      @download_tries = 0
-
-      # Load configuration from _config.yml
       plugin_config = site.config['fontello'] || { }
-      @config_file = plugin_config['config'] || 'fontello_config.json'
-      @output_fonts = plugin_config['output_fonts']|| 'fontello/fonts'
-      @output_styles = plugin_config['output_styles'] || 'fontello/styles'
-      @fonts_path = plugin_config['fonts_path'] || relative_path_styles_to_fonts
-      @preprocessor = plugin_config['preprocessor'] || 'none'
-
-      # Read the configuration
-      @fontello_config = File.read(@config_file)
+      init(plugin_config)
 
       # Main pipeline
       download_zip()
       extract_zip(site)
       set_font_path()
       clean_up()
+    end
+
+    # Initialize the Generator instance variables.
+    def init(config)
+      @download_tries = 0
+
+      # Load configuration from _config.yml
+      @config_file = config['config'] || 'fontello_config.json'
+      @output_fonts = config['output_fonts']|| 'fontello/fonts'
+      @output_styles = config['output_styles'] || 'fontello/styles'
+      @fonts_path = config['fonts_path'] || relative_path_styles_to_fonts
+      @preprocessor = config['preprocessor'] || 'none'
+
+      # Read the configuration
+      @fontello_config = File.read(@config_file)
     end
 
     # Downloads the zip file from Fontello based on
@@ -110,9 +115,7 @@ module Fontello
     #
     #  see: https://github.com/fontello/fontello/#api-methods
     def session_key
-      if File.exists? SESSION_FILE
-        return File.read(SESSION_FILE)
-      end
+      return File.read(SESSION_FILE) if File.exist? SESSION_FILE
 
       url = URI(FONTELLO_URL)
       boundary = '----WebKitFormREQUEST_BOUNDARY7MA4YWxkTrZu0gW'
