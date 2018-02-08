@@ -1,5 +1,7 @@
 # jekyll-fontello
 
+[![CircleCI](https://circleci.com/gh/ericcornelissen/jekyll-fontello.svg?style=svg)](https://circleci.com/gh/ericcornelissen/jekyll-fontello)
+
 Jekyll plugin that automatically downloads your webfont from Fontello.
 
 ## Installation

@@ -48,7 +48,9 @@ class JekyllFontelloTest < Minitest::Test
   end
 
   def test_set_font_path
+    FileUtils.mkdir_p('test/_tmp/styles/')
     FileUtils.cp('test/fixtures/stylesheet.css', 'test/_tmp/styles/stylesheet.css')
+
     @generator.set_font_path()
     assert_equal '@font-face { src: url(\'../foo/bar/fontello.eot?52513028\'); }',
       File.read('test/_tmp/styles/stylesheet.css')
