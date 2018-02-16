@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name        = 'jekyll-fontello'
-  spec.version     = '0.1.1'
+  spec.version     = '0.1.2'
   spec.date        = '2018-02-08'
   spec.summary     = 'Fontello for jekyll'
   spec.description = 'Jekyll plugin that automatically downloads your webfont from Fontello.'
@@ -11,8 +11,8 @@ Gem::Specification.new do |spec|
   spec.license     = 'MIT'
   spec.extra_rdoc_files = ['README.md', 'LICENSE']
 
-  spec.add_runtime_dependency 'rubyzip'
-  spec.add_development_dependency 'codecov'
-  spec.add_development_dependency 'jekyll'
-  spec.add_development_dependency 'simplecov'
+  spec.add_runtime_dependency 'rubyzip', '~> 1.2'
+  spec.add_development_dependency 'codecov', '~> 0.1'
+  spec.add_development_dependency 'jekyll', '~> 3.5'
+  spec.add_development_dependency 'simplecov', '~> 0.15'
 end
