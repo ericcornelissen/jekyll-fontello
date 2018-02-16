@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.authors     = ['Eric Cornelissen']
   spec.email       = 'ericornelissen@gmail.com'
   spec.files       = ['lib/jekyll-fontello.rb']
-  spec.homepage    = 'http://rubygems.org/gems/hola'
+  spec.homepage    = 'https://rubygems.org/gems/jekyll-fontello'
   spec.license     = 'MIT'
   spec.extra_rdoc_files = ['README.md', 'LICENSE']
 
