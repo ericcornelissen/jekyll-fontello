@@ -12,5 +12,7 @@ Gem::Specification.new do |spec|
   spec.extra_rdoc_files = ['README.md', 'LICENSE']
 
   spec.add_runtime_dependency 'rubyzip'
+  spec.add_development_dependency 'codecov'
   spec.add_development_dependency 'jekyll'
+  spec.add_development_dependency 'simplecov'
 end
