@@ -2,6 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/ericcornelissen/jekyll-fontello.svg?style=svg)](https://circleci.com/gh/ericcornelissen/jekyll-fontello)
 [![Codecov](https://codecov.io/gh/ericcornelissen/jekyll-fontello/branch/master/graph/badge.svg)](https://codecov.io/gh/ericcornelissen/jekyll-fontello)
+[![Maintainability](https://api.codeclimate.com/v1/badges/2e63e692dc90862a47ad/maintainability)](https://codeclimate.com/github/ericcornelissen/jekyll-fontello/maintainability)
 [![Gem Version](https://badge.fury.io/rb/jekyll-fontello.png)](https://badge.fury.io/rb/jekyll-fontello)
 
 Jekyll plugin that automatically downloads your webfont from Fontello.
