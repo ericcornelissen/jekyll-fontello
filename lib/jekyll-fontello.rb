@@ -118,17 +118,17 @@ module JekyllFontello
       return File.read(SESSION_FILE) if File.exist? SESSION_FILE
 
       url = URI(FONTELLO_URL)
-      boundary = '----WebKitFormREQUEST_BOUNDARY7MA4YWxkTrZu0gW'
+      boundary = '----WebKitFormBoundary7MA4YWxkTrZu0gW'
 
       # Setup a http connection with Fontello
       http = Net::HTTP.new url.host, url.port
 
       # Construct the request to get a session key
       request = Net::HTTP::Post.new url
-      request['Content-Type'] = "multipart/form-data; REQUEST_BOUNDARY=#{boundary}"
-      request['Content-Disposition'] = 'multipart/form-data'
-      request['Cache-Control'] = 'no-cache'
-      request.body = "--#{boundary}\r\nContent-Disposition: form-data; name=\"config\"; filename=\"#{@config_file}\"\r\nContent-Type: application/json\r\n\r\n#{@fontello_config}\r\n\r\n\r\n--#{boundary}"
+      request["Content-Type"] = "multipart/form-data; boundary=#{boundary}"
+      request["Content-Disposition"] = 'multipart/form-data'
+      request["Cache-Control"] = 'no-cache'
+      request.body = "--#{boundary}\r\nContent-Disposition: form-data; name=\"config\"; filename=\"#{@config_file}\"\r\nContent-Type: application/json\r\n\r\n#{@fontello_config}\r\n--#{boundary}--"
 
       # Send the request to Fontello
       response = http.request(request)
