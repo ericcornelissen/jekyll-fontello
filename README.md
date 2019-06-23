@@ -10,17 +10,30 @@ Jekyll plugin that automatically downloads your webfont from Fontello.
 ## Installation
 
 1. Install the `jekyll-fontello` gem:
-```
-gem install jekyll-fontello
-```
-2. Add `jekyll-fontello` to the list of gems in `_config.yml`:
-```yaml
-gems: ["jekyll-fontello"]
-```
-3. Add a Fontello configuration file named `fontello_config.json` to your project.
-4. Use Fontello icons on your website or blog!
 
-_Or_ copy `lib/jekyll-fontello.rb` into your `_plugins` directory.
+```shell
+$ gem install jekyll-fontello
+```  
+
+2. Add `jekyll-fontello` to the list of plugins in `_config.yml`:
+
+```yaml
+plugins:
+  - jekyll-fontello
+```
+
+3. Add a Fontello configuration file named `fontello_config.json` to your project.
+4. Include the Fontello `.css` file in your pages:
+
+```html
+<link href="/fontello/styles/fontello.css" rel="stylesheet" type="text/css">
+```
+
+5. Use Fontello icons on your website or blog, for example:
+
+```html
+<i class="icon-rocket"></i>
+```
 
 ## Options
 
